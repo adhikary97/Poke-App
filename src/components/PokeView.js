@@ -27,11 +27,6 @@ class PokeView extends Component {
   render() {
     return (
       <Grid container justify="center" alignItems="center">
-        <Grid item>
-          <Typography variant="h4" color="primary">
-            Pokedex Viewer
-          </Typography>
-        </Grid>
         <Grid container justify="space-evenly">
           <Grid container>
             <PokeHolder
