@@ -27,10 +27,14 @@ class SingleView extends Component {
     const json = await response.json();
     let abilities = this.separate(json.abilities, 'ability');
     let types = this.separate(json.types, 'type');
+    const name = json.name;
+    const id = json.id;
     const height = json.height;
     const weight = json.weight;
     const experience = json.base_experience;
     this.setState({
+      name,
+      id,
       height,
       weight,
       types,
@@ -40,18 +44,15 @@ class SingleView extends Component {
   };
 
   componentDidMount() {
-    const url1 = `https://pokeapi.co/api/v2/pokemon/${this.state.id}/`;
-    this.handleLoad(url1);
+    const url = `https://pokeapi.co/api/v2/pokemon/${this.state.id}/`;
+    this.handleLoad(url);
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps !== this.props) {
       const id = this.props.location.state.id;
-      const url1 = `https://pokeapi.co/api/v2/pokemon/${id}/`;
-      this.setState({
-        id
-      });
-      this.handleLoad(url1);
+      const url = `https://pokeapi.co/api/v2/pokemon/${id}/`;
+      this.handleLoad(url);
     }
   }
 
