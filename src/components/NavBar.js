@@ -16,14 +16,15 @@ class NavBar extends Component {
   handleChange = event => this.setState({ searchTerm: event.target.value });
 
   getSearch = async searchTerm => {
-    const url = `https://pokeapi.co/api/v2/pokemon/${searchTerm}/`;
+    const cleaned = searchTerm.trim().toLowerCase();
+    const url = `https://pokeapi.co/api/v2/pokemon/${cleaned}/`;
     let flag = 1;
     const response = await fetch(url).catch(err => {
       flag = 0;
     });
     if (flag) {
       const json = await response.json();
-      console.log(json.id);
+      // console.log(json.id);
       return json.id;
     }
   };
@@ -31,7 +32,7 @@ class NavBar extends Component {
   handleSubmit = event => {
     event.preventDefault();
     const { searchTerm } = this.state;
-    console.log(searchTerm);
+    // console.log(searchTerm);
     this.getSearch(searchTerm).then(id => {
       this.props.history.push({
         pathname: '/details',
