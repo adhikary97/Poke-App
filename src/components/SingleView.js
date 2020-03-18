@@ -44,6 +44,17 @@ class SingleView extends Component {
     this.handleLoad(url1);
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps !== this.props) {
+      const id = this.props.location.state.id;
+      const url1 = `https://pokeapi.co/api/v2/pokemon/${id}/`;
+      this.setState({
+        id
+      });
+      this.handleLoad(url1);
+    }
+  }
+
   render() {
     return (
       <Grid container space={3}>
