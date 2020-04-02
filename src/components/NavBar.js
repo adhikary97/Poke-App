@@ -77,9 +77,9 @@ class NavBar extends Component {
               </form>
               <img
                 alt="search"
-                height={20}
+                height={25}
                 width={25}
-                src="https://i.dlpng.com/static/png/1486015-magnifying-glasspng-magnifying-glass-png-829_684_preview.png"
+                src="https://img.icons8.com/pastel-glyph/64/000000/search--v2.png"
               />
             </Grid>
           </Paper>
